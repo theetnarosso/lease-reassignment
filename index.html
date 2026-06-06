@@ -349,6 +349,41 @@
       line-height: 1.28;
     }
 
+    .figure-tag {
+      display: inline-block;
+      width: fit-content;
+      margin-bottom: 10px;
+      padding: 4px 7px;
+      border: 1px solid rgba(99, 114, 71, 0.3);
+      border-radius: 4px;
+      background: var(--olive-soft);
+      color: #4f5940;
+      font-size: 0.68rem;
+      font-weight: 900;
+      letter-spacing: 0.08em;
+      line-height: 1;
+      text-transform: uppercase;
+    }
+
+    .financial-note {
+      margin: 20px 0 0;
+      padding: 14px 16px;
+      border-left: 3px solid var(--olive);
+      background: var(--olive-soft);
+      color: #4f5940;
+      font-size: 0.86rem;
+      font-weight: 700;
+    }
+
+    .metrics-band .financial-note {
+      width: min(var(--max), calc(100% - 40px));
+      margin: 0 auto;
+      padding: 15px 20px;
+      border-top: 1px solid var(--line);
+      border-left: 0;
+      background: transparent;
+    }
+
     .section-head {
       display: flex;
       align-items: end;
@@ -366,14 +401,6 @@
       font-size: 1.02rem;
     }
 
-    .asset-layout {
-      display: grid;
-      grid-template-columns: minmax(0, 1.08fr) minmax(320px, 0.92fr);
-      gap: 22px;
-      align-items: stretch;
-    }
-
-    .feature-image,
     .asset-tile,
     .wide-visual,
     .document-card {
@@ -384,7 +411,6 @@
       box-shadow: 0 14px 35px rgba(31, 33, 28, 0.08);
     }
 
-    .feature-image img,
     .asset-tile img,
     .wide-visual img {
       display: block;
@@ -392,34 +418,48 @@
       object-fit: cover;
     }
 
-    .feature-image img {
-      height: 100%;
-      min-height: 640px;
+    .space-gallery {
+      columns: 3;
+      column-gap: 18px;
     }
 
-    .asset-stack {
+    .space-gallery .asset-tile {
+      display: inline-block;
+      width: 100%;
+      margin: 0 0 18px;
+      break-inside: avoid;
+      vertical-align: top;
+    }
+
+    .space-gallery .asset-tile img {
+      height: auto;
+      aspect-ratio: auto;
+    }
+
+    .location-pair {
       display: grid;
-      gap: 22px;
-    }
-
-    .asset-grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 22px;
-    }
-
-    .asset-tile img {
-      aspect-ratio: 1 / 1;
-    }
-
-    .operating-grid {
-      display: grid;
-      grid-template-columns: repeat(5, minmax(0, 1fr));
+      grid-template-columns: minmax(0, 2fr) minmax(280px, 0.72fr);
       gap: 18px;
+      margin: 0 0 18px;
+      align-items: stretch;
     }
 
-    .operating-grid .asset-tile img {
-      aspect-ratio: 4 / 5;
+    .location-pair .asset-tile {
+      margin: 0;
+    }
+
+    .location-feature img {
+      width: 100%;
+      aspect-ratio: 16 / 7;
+      object-fit: cover;
+    }
+
+    .location-floor-plan img {
+      width: 100%;
+      height: 100%;
+      min-height: 0;
+      object-fit: contain;
+      background: #fff;
     }
 
     .image-caption {
@@ -449,11 +489,13 @@
 
     .video-grid {
       display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
+      grid-template-columns: repeat(3, minmax(0, 1fr));
       gap: 22px;
     }
 
     .video-card {
+      display: grid;
+      grid-template-rows: auto 1fr;
       border: 1px solid var(--line);
       border-radius: var(--radius);
       background: var(--paper-strong);
@@ -477,6 +519,16 @@
 
     .video-copy {
       padding: 22px;
+    }
+
+    .video-language {
+      display: block;
+      margin-bottom: 10px;
+      color: var(--tomato-dark);
+      font-size: 0.74rem;
+      font-weight: 900;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
     }
 
     .video-copy p {
@@ -526,7 +578,7 @@
 
     .document-grid {
       display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
+      grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: 18px;
     }
 
@@ -694,6 +746,57 @@
       object-fit: cover;
     }
 
+    .disclaimer {
+      width: min(var(--max), calc(100% - 40px));
+      margin: 0 auto clamp(44px, 7vw, 78px);
+      padding: clamp(28px, 5vw, 52px);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: #f2f0e9;
+    }
+
+    .disclaimer h2 {
+      max-width: 16ch;
+      font-size: clamp(2rem, 4vw, 3.8rem);
+    }
+
+    .disclaimer-intro {
+      max-width: 780px;
+      margin: 20px 0 0;
+      color: var(--muted);
+    }
+
+    .disclaimer-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1px;
+      margin-top: 30px;
+      border: 1px solid var(--line);
+      background: var(--line);
+    }
+
+    .disclaimer-language {
+      padding: clamp(22px, 4vw, 34px);
+      background: var(--paper-strong);
+    }
+
+    .disclaimer-language h3 {
+      margin-bottom: 20px;
+      font-size: 1.45rem;
+      line-height: 1.15;
+    }
+
+    .disclaimer-language p {
+      margin: 0 0 16px;
+      color: var(--muted);
+      font-size: 0.9rem;
+      line-height: 1.65;
+    }
+
+    .disclaimer-language p:last-child {
+      margin-bottom: 0;
+    }
+
     .cta {
       width: min(var(--max), calc(100% - 40px));
       margin: 0 auto clamp(44px, 7vw, 78px);
@@ -766,7 +869,6 @@
     @media (max-width: 980px) {
       .hero,
       .pdf-layout,
-      .asset-layout,
       .support-layout,
       .cta {
         grid-template-columns: 1fr;
@@ -788,17 +890,35 @@
         border-right: 1px solid var(--line);
       }
 
-      .video-grid,
       .thesis-grid,
       .proof-grid,
-      .document-grid,
-      .visual-grid,
-      .operating-grid {
+      .visual-grid {
         grid-template-columns: 1fr;
       }
 
-      .feature-image img {
-        min-height: 420px;
+      .video-grid,
+      .document-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .disclaimer-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .video-grid .video-card:last-child {
+        grid-column: 1 / -1;
+      }
+
+      .space-gallery {
+        columns: 2;
+      }
+
+      .location-pair {
+        grid-template-columns: 1fr;
+      }
+
+      .location-floor-plan img {
+        max-height: 680px;
       }
 
       .section-head {
@@ -824,6 +944,7 @@
       .section,
       .hero,
       .metrics,
+      .disclaimer,
       .cta,
       footer {
         width: min(100% - 28px, var(--max));
@@ -869,12 +990,21 @@
         gap: 10px;
       }
 
-      .asset-grid {
+      .space-gallery {
+        columns: 1;
+      }
+
+      .video-grid,
+      .document-grid {
         grid-template-columns: 1fr;
       }
 
-      .feature-image img {
-        min-height: 320px;
+      .video-grid .video-card:last-child {
+        grid-column: auto;
+      }
+
+      .location-feature img {
+        aspect-ratio: 4 / 3;
       }
 
       .pdf-preview,
@@ -901,8 +1031,8 @@
         <span>Lease reassignment & asset sale</span>
       </a>
       <div class="nav-links">
-        <a href="#assets">Assets</a>
         <a href="#videos">Videos</a>
+        <a href="#assets">Gallery</a>
         <a href="#documents">Documents</a>
         <a href="#proof">Proof</a>
         <a class="button" href="#contact">Inquire</a>
@@ -917,7 +1047,7 @@
         <p class="lead">Lease reassignment and asset sale opportunity backed by 2025 POS performance, proven dinner demand, premium check averages, and a turnkey operating platform.</p>
         <div class="hero-actions">
           <a class="button" href="#videos">Watch the videos</a>
-          <a class="button secondary" href="github-upload-light/assets/documents/buyer-cim-overview.pdf" target="_blank" rel="noopener">Open buyer overview</a>
+          <a class="button secondary" href="assets/documents/Etna-Rosso-Presentation.pdf" target="_blank" rel="noopener">Open presentation</a>
         </div>
         <div class="hero-note" aria-label="Opportunity notes">
           <span>2025 POS-backed acquisition story</span>
@@ -927,16 +1057,17 @@
       </div>
 
       <div class="hero-media">
-        <img class="hero-photo" src="github-upload-light/assets/images/etna-rosso-a1a-location.jpeg" alt="Aerial view of The Etna Rosso on the A1A corridor in Fort Lauderdale">
+        <img class="hero-photo" src="assets/images/etna-rosso-a1a-location.jpeg" alt="Aerial view of The Etna Rosso on the A1A corridor in Fort Lauderdale">
         <aside class="price-panel" aria-label="Asking price and key facts">
           <p class="panel-label">Asking price</p>
           <div class="ask">$189,000</div>
           <p>Lease-and-asset ask supported by modeled operating cash generation and documented 2025 sales activity.</p>
           <div class="panel-stat-list">
-            <div class="panel-stat"><span>2025 gross sales</span><strong>$594,534</strong></div>
-            <div class="panel-stat"><span>2025 net sales</span><strong>$555,067</strong></div>
-            <div class="panel-stat"><span>Gross order average</span><strong>$162.93</strong></div>
+            <div class="panel-stat"><span>Historical - 2025 gross sales</span><strong>$594,534</strong></div>
+            <div class="panel-stat"><span>Historical - 2025 net sales</span><strong>$555,067</strong></div>
+            <div class="panel-stat"><span>Historical - gross order average</span><strong>$162.93</strong></div>
           </div>
+          <p class="financial-note">Historical and modeled information only. No financial figure is a guarantee of future performance.</p>
         </aside>
       </div>
     </section>
@@ -944,124 +1075,38 @@
     <section class="metrics-band" aria-label="Key performance metrics">
       <div class="metrics">
         <div class="metric">
+          <small class="figure-tag">Historical</small>
           <strong>$594.5K</strong>
           <span>2025 gross POS sales</span>
         </div>
         <div class="metric">
+          <small class="figure-tag">Historical</small>
           <strong>$555.1K</strong>
           <span>2025 net sales after taxes and discounts</span>
         </div>
         <div class="metric">
+          <small class="figure-tag">Historical</small>
           <strong>$162.93</strong>
           <span>Gross order average</span>
         </div>
         <div class="metric">
+          <small class="figure-tag">Historical</small>
           <strong>53.0%</strong>
           <span>Friday and Saturday share of day-of-week sales</span>
         </div>
         <div class="metric">
+          <small class="figure-tag">Historical</small>
           <strong>76.5%</strong>
           <span>Time-of-day sales from 6-9 PM</span>
         </div>
       </div>
-    </section>
-
-    <section class="section" id="assets" aria-labelledby="assets-title">
-      <div class="section-head">
-        <h2 id="assets-title">Real assets, real location.</h2>
-        <p>Buyer materials now show the actual restaurant environment, wine-focused merchandising, dining room activity, floor plan, and A1A corridor setting.</p>
-      </div>
-      <div class="asset-layout">
-        <figure class="feature-image">
-          <img src="github-upload-light/assets/images/etna-rosso-dining-room.jpeg" alt="The Etna Rosso storefront and patio with visible restaurant signage">
-          <figcaption class="image-caption">
-            <strong>Storefront and patio</strong>
-            <span>Visible restaurant frontage, signage, and outdoor seating presence for buyer review.</span>
-          </figcaption>
-        </figure>
-        <div class="asset-stack">
-          <div class="asset-grid">
-            <figure class="asset-tile">
-              <img src="github-upload-light/assets/images/etna-rosso-bar.jpeg" alt="The Etna Rosso dining room during service with guests seated at white tablecloth tables">
-              <figcaption class="image-caption">
-                <strong>Dinner room in service</strong>
-                <span>Existing guest demand and a dining-room format that supports private dining, wine dinners, and high-season service.</span>
-              </figcaption>
-            </figure>
-            <figure class="asset-tile">
-              <img src="github-upload-light/assets/images/etna-rosso-wine-room.jpeg" alt="The Etna Rosso bar counter with wine service setup and seated stools">
-              <figcaption class="image-caption">
-                <strong>Bar counter</strong>
-                <span>Compact service asset for wine pairings and check-building.</span>
-              </figcaption>
-            </figure>
-            <figure class="asset-tile">
-              <img src="github-upload-light/assets/images/etna-rosso-interior-detail.jpeg" alt="Wine display area with bottles and a small table inside The Etna Rosso">
-              <figcaption class="image-caption">
-                <strong>Wine room</strong>
-                <span>Visible wine inventory and merchandising support the premium check story.</span>
-              </figcaption>
-            </figure>
-          </div>
-          <figure class="asset-tile floor-plan">
-            <img src="github-upload-light/assets/images/etna-rosso-floor-plan.jpg" alt="Floor plan for 3354 North Ocean Boulevard showing serving, seating, restrooms, and outdoor seating">
-            <figcaption class="image-caption">
-              <strong>3354 N Ocean Boulevard floor plan</strong>
-              <span>Serving, seating, restroom, pass-through, and outdoor seating areas for buyer review.</span>
-            </figcaption>
-          </figure>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" aria-labelledby="operating-areas-title">
-      <div class="section-head">
-        <h2 id="operating-areas-title">Operating areas.</h2>
-        <p>Additional buyer photos show the front patio, dining setup, and kitchen infrastructure that support the turnkey handoff.</p>
-      </div>
-      <div class="operating-grid">
-        <figure class="asset-tile">
-          <img src="github-upload-light/assets/images/etna-rosso-front-patio.jpeg" alt="The Etna Rosso front patio set with white tablecloth outdoor dining tables">
-          <figcaption class="image-caption">
-            <strong>Front patio</strong>
-            <span>Outdoor seating area set for dinner service.</span>
-          </figcaption>
-        </figure>
-        <figure class="asset-tile">
-          <img src="github-upload-light/assets/images/etna-rosso-private-dining.jpeg" alt="Interior dining room set with white tablecloth tables and banquet seating">
-          <figcaption class="image-caption">
-            <strong>Dining setup</strong>
-            <span>Interior seating format for regular service and private dining.</span>
-          </figcaption>
-        </figure>
-        <figure class="asset-tile">
-          <img src="github-upload-light/assets/images/etna-rosso-kitchen-line-camera.png" alt="Kitchen line with range, hood, prep counter, and active cooking">
-          <figcaption class="image-caption">
-            <strong>Active kitchen line</strong>
-            <span>Back-of-house cooking line in use.</span>
-          </figcaption>
-        </figure>
-        <figure class="asset-tile">
-          <img src="github-upload-light/assets/images/etna-rosso-kitchen-stainless-line.png" alt="Clean stainless steel commercial kitchen line with prep and cooking equipment">
-          <figcaption class="image-caption">
-            <strong>Kitchen equipment</strong>
-            <span>Commercial prep, storage, hood, and cooking infrastructure.</span>
-          </figcaption>
-        </figure>
-        <figure class="asset-tile">
-          <img src="github-upload-light/assets/images/etna-rosso-kitchen-prep-camera.png" alt="Kitchen prep and cooking area with equipment, storage, and sauce pot on the range">
-          <figcaption class="image-caption">
-            <strong>Prep capacity</strong>
-            <span>Compact production area supporting menu execution.</span>
-          </figcaption>
-        </figure>
-      </div>
+      <p class="financial-note">All financial figures are historical, modeled, or illustrative only and are not guarantees of future performance.</p>
     </section>
 
     <section class="section" id="videos" aria-labelledby="videos-title">
       <div class="section-head">
         <h2 id="videos-title">See the opportunity.</h2>
-        <p>Two short videos introduce the restaurant, space, and operating story before buyers move into the supporting diligence packet.</p>
+        <p>Three short videos introduce the restaurant, space, and operating story, including a dedicated overview for Italian-speaking buyers.</p>
       </div>
       <div class="video-grid">
         <article class="video-card">
@@ -1082,51 +1127,99 @@
             <p>A focused view of the lease reassignment and asset sale opportunity for qualified buyers.</p>
           </div>
         </article>
+        <article class="video-card">
+          <div class="video-frame">
+            <iframe src="https://www.youtube.com/embed/-FGkiPhDb_4" title="The Etna Rosso opportunity video in Italian" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+          </div>
+          <div class="video-copy">
+            <span class="video-language">Italiano - Video in Italian</span>
+            <h3>Presentazione per acquirenti italiani</h3>
+            <p>Una panoramica dell'opportunita dedicata ai potenziali acquirenti di lingua italiana.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="assets" aria-labelledby="assets-title">
+      <div class="section-head">
+        <h2 id="assets-title">Explore the space.</h2>
+        <p>A single gallery of the restaurant frontage, dining areas, wine-focused merchandising, kitchen infrastructure, patio, and floor plan.</p>
+      </div>
+      <div class="location-pair">
+        <figure class="asset-tile location-feature">
+          <img src="assets/images/skyA1A_bright_color_sharp.jpg" alt="Aerial street view of the A1A corridor, surrounding residences, and Atlantic Ocean near The Etna Rosso">
+          <figcaption class="image-caption"><strong>A1A location and ocean proximity</strong><span>High-visibility corridor surrounded by residential towers and located steps from the Atlantic Ocean.</span></figcaption>
+        </figure>
+        <figure class="asset-tile location-floor-plan floor-plan">
+          <img src="assets/images/etna-rosso-floor-plan.jpg" alt="Floor plan for 3354 North Ocean Boulevard showing serving, seating, restrooms, and outdoor seating">
+          <figcaption class="image-caption"><strong>3354 N Ocean Boulevard floor plan</strong><span>Serving, seating, restroom, pass-through, and outdoor seating areas.</span></figcaption>
+        </figure>
+      </div>
+      <div class="space-gallery">
+        <figure class="asset-tile wide">
+          <img src="assets/images/etna-rosso-dining-room.jpeg" alt="The Etna Rosso storefront and patio with visible restaurant signage">
+          <figcaption class="image-caption"><strong>Storefront and patio</strong><span>Visible restaurant frontage, signage, and outdoor seating.</span></figcaption>
+        </figure>
+        <figure class="asset-tile">
+          <img src="assets/images/etna-rosso-bar.jpeg" alt="The Etna Rosso dining room during service with guests seated at white tablecloth tables">
+          <figcaption class="image-caption"><strong>Dining room in service</strong><span>Established dinner demand and flexible seating.</span></figcaption>
+        </figure>
+        <figure class="asset-tile tall">
+          <img src="assets/images/etna-rosso-front-patio.jpeg" alt="The Etna Rosso front patio set with white tablecloth outdoor dining tables">
+          <figcaption class="image-caption"><strong>Front patio</strong><span>Outdoor seating area set for dinner service.</span></figcaption>
+        </figure>
+        <figure class="asset-tile">
+          <img src="assets/images/etna-rosso-private-dining.jpeg" alt="Interior dining room set with white tablecloth tables and banquet seating">
+          <figcaption class="image-caption"><strong>Private dining setup</strong><span>Flexible space for regular service and events.</span></figcaption>
+        </figure>
+        <figure class="asset-tile">
+          <img src="assets/images/etna-rosso-wine-room.jpeg" alt="The Etna Rosso bar counter with wine service setup and seated stools">
+          <figcaption class="image-caption"><strong>Bar counter</strong><span>Compact service asset for wine pairings.</span></figcaption>
+        </figure>
+        <figure class="asset-tile">
+          <img src="assets/images/etna-rosso-interior-detail.jpeg" alt="Wine display area with bottles and a small table inside The Etna Rosso">
+          <figcaption class="image-caption"><strong>Wine room</strong><span>Visible wine inventory and merchandising.</span></figcaption>
+        </figure>
+        <figure class="asset-tile wide">
+          <img src="assets/images/etna-rosso-kitchen-stainless-line.png" alt="Clean stainless steel commercial kitchen line with prep and cooking equipment">
+          <figcaption class="image-caption"><strong>Commercial kitchen</strong><span>Stainless prep, storage, hood, and cooking infrastructure.</span></figcaption>
+        </figure>
+        <figure class="asset-tile">
+          <img src="assets/images/etna-rosso-kitchen-line-camera.png" alt="Kitchen line with range, hood, prep counter, and active cooking">
+          <figcaption class="image-caption"><strong>Active kitchen line</strong><span>Back-of-house cooking line in use.</span></figcaption>
+        </figure>
+        <figure class="asset-tile">
+          <img src="assets/images/etna-rosso-kitchen-prep-camera.png" alt="Kitchen prep and cooking area with equipment, storage, and sauce pot on the range">
+          <figcaption class="image-caption"><strong>Prep capacity</strong><span>Compact production area supporting menu execution.</span></figcaption>
+        </figure>
       </div>
     </section>
 
     <section class="section" id="documents" aria-labelledby="documents-title">
       <div class="section-head">
         <h2 id="documents-title">Diligence documents.</h2>
-        <p>The page now links the full presentation materials, financial model, blueprint packages, and buyer CIM directly from the site folder.</p>
+        <p>Review the complete opportunity presentation and supporting financial model directly from the website.</p>
       </div>
       <div class="document-grid">
         <article class="document-card">
           <div>
-            <h3>Buyer CIM</h3>
-            <p>A lightweight opportunity overview with the core 2025 POS proof, asking price support, and direct contact information.</p>
+            <h3>Etna Rosso presentation</h3>
+            <p>The complete buyer presentation covering the restaurant, location, performance, asking-price support, and growth opportunity.</p>
           </div>
           <div class="document-actions">
-            <a class="button" href="github-upload-light/assets/documents/buyer-cim-overview.pdf" target="_blank" rel="noopener">Open</a>
-            <a class="button secondary" href="github-upload-light/assets/documents/buyer-cim-overview.pdf" download>Download</a>
+            <a class="button" href="assets/documents/Etna-Rosso-Presentation.pdf" target="_blank" rel="noopener">Open</a>
+            <a class="button secondary" href="assets/documents/Etna-Rosso-Presentation.pdf" download>Download</a>
           </div>
         </article>
         <article class="document-card">
           <div>
+            <small class="figure-tag">Modeled / Illustrative</small>
             <h3>Financial model</h3>
             <p>Restaurant Financial Model 2025, including operating profit bridge, scenario upside, and recovery period support.</p>
           </div>
           <div class="document-actions">
-            <a class="button" href="github-upload-light/assets/documents/restaurant-financial-model-2025.pdf" target="_blank" rel="noopener">Open</a>
-            <a class="button secondary" href="github-upload-light/assets/documents/restaurant-financial-model-2025.pdf" download>Download</a>
-          </div>
-        </article>
-        <article class="document-card">
-          <div>
-            <h3>Etna Rosso blueprint</h3>
-            <p>The full blueprint presentation is available directly to qualified buyers by email request.</p>
-          </div>
-          <div class="document-actions">
-            <a class="button" href="mailto:a1abakebar@gmail.com?subject=Request%20The%20Etna%20Rosso%20Blueprint">Request by email</a>
-          </div>
-        </article>
-        <article class="document-card">
-          <div>
-            <h3>Project blueprint</h3>
-            <p>The supplemental project blueprint package is available directly to qualified buyers by email request.</p>
-          </div>
-          <div class="document-actions">
-            <a class="button" href="mailto:a1abakebar@gmail.com?subject=Request%20Project%20Etna%20Rosso%20Blueprint">Request by email</a>
+            <a class="button" href="assets/documents/restaurant-financial-model-2025.pdf" target="_blank" rel="noopener">Open</a>
+            <a class="button secondary" href="assets/documents/restaurant-financial-model-2025.pdf" download>Download</a>
           </div>
         </article>
       </div>
@@ -1135,17 +1228,17 @@
     <section class="section" id="memorandum" aria-labelledby="memorandum-title">
       <div class="pdf-layout">
         <div class="pdf-copy">
-          <h2 id="memorandum-title">Buyer confidential memorandum.</h2>
-          <p>The embedded overview summarizes the 2025 POS-backed acquisition story and asking price support. The full confidential memorandum is available directly to qualified buyers by email request.</p>
+          <h2 id="memorandum-title">View the complete presentation.</h2>
+          <p>Review the full Etna Rosso opportunity presentation directly below, including the location, restaurant assets, operating proof, asking-price support, and growth scenarios.</p>
           <div class="pdf-actions">
-            <a class="button" href="github-upload-light/assets/documents/buyer-cim-overview.pdf" target="_blank" rel="noopener">Open overview PDF</a>
-            <a class="button secondary" href="mailto:a1abakebar@gmail.com?subject=Request%20Full%20Buyer%20CIM">Request full CIM</a>
+            <a class="button" href="assets/documents/Etna-Rosso-Presentation.pdf" target="_blank" rel="noopener">Open presentation</a>
+            <a class="button secondary" href="assets/documents/Etna-Rosso-Presentation.pdf" download>Download presentation</a>
           </div>
         </div>
-        <div class="pdf-preview" aria-label="Buyer CIM PDF preview">
-          <object data="github-upload-light/assets/documents/buyer-cim-overview.pdf#page=1" type="application/pdf">
+        <div class="pdf-preview" aria-label="Etna Rosso presentation PDF preview">
+          <object data="assets/documents/Etna-Rosso-Presentation.pdf#page=1" type="application/pdf">
             <div class="pdf-fallback">
-              <p>Your browser may not show an inline PDF preview. Use the buttons on this section to open or download the buyer memorandum.</p>
+              <p>Your browser may not show an inline PDF preview. Use the buttons on this section to open or download the presentation.</p>
             </div>
           </object>
         </div>
@@ -1159,14 +1252,17 @@
       </div>
       <div class="thesis-grid">
         <article class="thesis-item">
+          <small class="figure-tag">Historical</small>
           <h3>Proven demand</h3>
           <p>2025 gross POS sales of $594.5K show real guest activity. The buyer is evaluating a functioning restaurant base, not a cold-start concept.</p>
         </article>
         <article class="thesis-item">
+          <small class="figure-tag">Historical</small>
           <h3>Peak periods already work</h3>
           <p>Friday and Saturday generate 53.0% of day-of-week sales, proving the destination works when guests are in-market and willing to spend.</p>
         </article>
         <article class="thesis-item">
+          <small class="figure-tag">Illustrative</small>
           <h3>Clear upside remains</h3>
           <p>Underused weekdays, daytime service, private dining, wine mix, and simplified low-season menu execution create practical growth levers.</p>
         </article>
@@ -1181,21 +1277,25 @@
         </div>
         <div class="proof-grid">
           <article class="proof-card">
+            <small class="figure-tag">Historical</small>
             <p class="proof-value">$109.7K</p>
             <h3>Credit card tips</h3>
             <p>Tip volume supports the guest spend story and reinforces a service-led dining experience with real customer engagement.</p>
           </article>
           <article class="proof-card">
+            <small class="figure-tag">Historical</small>
             <p class="proof-value">94.5%</p>
             <h3>Modern tender mix</h3>
             <p>Card-heavy and platform-tracked payments make diligence cleaner because the sales base is visible in the POS data.</p>
           </article>
           <article class="proof-card">
+            <small class="figure-tag">Historical</small>
             <p class="proof-value">$396.2K</p>
             <h3>Food revenue anchor</h3>
             <p>Food anchors revenue while wine and dessert create check-building levers for a focused operator.</p>
           </article>
           <article class="proof-card">
+            <small class="figure-tag">Historical</small>
             <p class="proof-value">$117.4K</p>
             <h3>Homemade pasta engine</h3>
             <p>Concentrated hero products give a buyer a clear menu optimization roadmap around high-margin winners.</p>
@@ -1211,57 +1311,53 @@
       </div>
       <div class="visual-grid">
         <figure class="wide-visual">
-          <img src="github-upload-light/assets/images/etna-rosso-growth-platform-light.jpg" alt="The Etna Rosso opportunity infographic showing monthly rent, gross order average, recovery period, menu margins, and scalability roadmap">
+          <img src="assets/images/etna-rosso-growth-platform-light.jpg" alt="The Etna Rosso opportunity infographic showing monthly rent, gross order average, recovery period, menu margins, and scalability roadmap">
           <figcaption class="image-caption">
             <strong>Turnkey growth platform</strong>
             <span>Low rent, premium guest spend, menu optimization, and service-channel expansion in one buyer-facing visual.</span>
           </figcaption>
         </figure>
         <figure class="wide-visual">
-          <img src="github-upload-light/assets/images/etna-rosso-turnkey-investment-guide-light.jpg" alt="Florida restaurant turnkey investment guide infographic with high season, weekday activation, rent, sales, and investment thesis">
+          <img src="assets/images/etna-rosso-turnkey-investment-guide-light.jpg" alt="Florida restaurant turnkey investment guide infographic with high season, weekday activation, rent, sales, and investment thesis">
           <figcaption class="image-caption">
             <strong>Turnkey investment guide</strong>
             <span>Scenario upside, high-season lunch/brunch, weekday activation, and low fixed-cost foundation.</span>
           </figcaption>
         </figure>
       </div>
+      <p class="financial-note">The financial figures and scenarios shown within these visuals are historical, modeled, or illustrative, as applicable, and are not guarantees of future performance.</p>
     </section>
 
-    <section class="section" aria-labelledby="support-title">
-      <div class="support-layout">
-        <div>
-          <div class="section-head">
-            <h2 id="support-title">Ask support.</h2>
-          </div>
-          <div class="support-list">
-            <div class="support-row">
-              <strong>$92.9K</strong>
-              <span>Fixed-cost base identified in the CIM, with occupancy and utilities carrying the main recurring obligation story.</span>
-            </div>
-            <div class="support-row">
-              <strong>$130.2K</strong>
-              <span>Modeled operating profit in the base case, converting documented net sales into buyer-relevant cash generation.</span>
-            </div>
-            <div class="support-row">
-              <strong>17.4 mo.</strong>
-              <span>Modeled ask-to-profit recovery period in the base case, subject to buyer diligence and actual operating performance.</span>
-            </div>
-          </div>
-        </div>
-        <aside class="scenario">
-          <h3>Scenario upside</h3>
-          <p>The upside case is operationally specific: protect the strong dinner window, fill slow days with events and private dining, grow wine and menu mix, and add controlled high-season lunch or brunch without changing the core concept.</p>
-        </aside>
+    <section class="disclaimer" id="disclaimer" aria-labelledby="disclaimer-title">
+      <h2 id="disclaimer-title">Disclaimer / Important Information</h2>
+      <p class="disclaimer-intro">Please review this information before making any financial decision or entering into any agreement.</p>
+      <div class="disclaimer-grid">
+        <article class="disclaimer-language" lang="en">
+          <h3>English</h3>
+          <p>All financial information presented on this website is provided for informational purposes only. Any sales, revenue, profit, margin, recovery-period, upside, break-even, return-on-investment, or similar financial figure should be understood as historical, modeled, or illustrative, as applicable. No financial figure should be interpreted as a guarantee, promise, warranty, or assurance of future performance.</p>
+          <p>Supporting documentation may be available to qualified prospective parties where applicable, including POS reports, sales summaries, invoices, lease documents, equipment lists, rent/CAM/tax breakdowns, expense assumptions, and owner-prepared calculations. Prospective buyers, assignees, subtenants, or operators are responsible for conducting their own due diligence and independently verifying all information before entering into any agreement.</p>
+          <p>The referenced approximately $3,600/month occupancy cost is understood to include base rent, CAM, and taxes, subject to minor adjustments, reconciliations, lease terms, landlord charges, applicable annual increases, and other lease-related changes.</p>
+          <p><strong>Included / Excluded Items.</strong> Only items expressly included in the final signed agreement are included in the transaction. Equipment, furniture, fixtures, smallwares, plants, inventory, recipes, licenses, permits, phone numbers, email lists, customer lists, business name, branding, logos, website, social media accounts, photographs, videos, menus, marketing materials, and other intellectual property are included only to the extent specifically stated in the final written agreement. Anything not expressly included should be considered excluded unless otherwise agreed in writing. Recipes may be available upon request only to the extent agreed in writing. Licenses and permits are included only to the extent transferable and approved by the applicable authorities.</p>
+          <p>Nothing on this website implies or guarantees landlord approval, lease assignment approval, sublease approval, license transfer approval, permit transfer approval, continued use of the business name, continued vendor relationships, continued customer traffic, future sales, future profit, a guaranteed recovery period, a guaranteed return on investment, or guaranteed business success. All approvals, transfers, assignments, and final transaction terms are subject to the applicable landlord, governmental agencies, licensing authorities, third parties, and final written agreements.</p>
+        </article>
+        <article class="disclaimer-language" lang="it">
+          <h3>Dichiarazione di esclusione di responsabilità / Informazioni importanti</h3>
+          <p>Tutte le informazioni finanziarie presenti su questo sito sono fornite esclusivamente a scopo informativo. Qualsiasi dato relativo a vendite, ricavi, profitti, margini, periodo di recupero dell'investimento, potenziale incremento, punto di pareggio, ritorno sull'investimento o dati finanziari simili deve essere considerato, a seconda del caso, storico, modellato o illustrativo. Nessun dato finanziario deve essere interpretato come garanzia, promessa, assicurazione o certezza di risultati futuri.</p>
+          <p>La documentazione di supporto potrà essere resa disponibile a potenziali soggetti qualificati, ove applicabile, inclusi report POS, riepiloghi vendite, fatture, documenti di locazione, elenchi delle attrezzature, dettagli relativi a canone, CAM e tasse, ipotesi di spesa e calcoli predisposti dal proprietario. I potenziali acquirenti, cessionari, subconduttori o operatori sono responsabili di svolgere la propria due diligence e di verificare in modo indipendente tutte le informazioni prima di sottoscrivere qualsiasi accordo.</p>
+          <p>Il costo di occupazione indicativo di circa $3.600/mese si intende comprensivo di canone base, CAM e tasse, soggetto a piccoli aggiustamenti, riconciliazioni, termini del contratto di locazione, addebiti del proprietario dell'immobile, eventuali aumenti annuali applicabili e altre modifiche relative alla locazione.</p>
+          <p><strong>Beni inclusi / esclusi.</strong> Solo i beni espressamente inclusi nel contratto finale firmato saranno considerati inclusi nella transazione. Attrezzature, arredi, fixtures, piccoli utensili, piante, inventario, ricette, licenze, permessi, numeri di telefono, liste email, liste clienti, nome commerciale, branding, loghi, sito web, account social media, fotografie, video, menu, materiali di marketing e altra proprietà intellettuale sono inclusi solo nella misura in cui siano specificamente indicati nell'accordo scritto finale. Qualsiasi elemento non espressamente incluso deve essere considerato escluso, salvo diverso accordo scritto. Le ricette potranno essere disponibili su richiesta solo nella misura concordata per iscritto. Licenze e permessi sono inclusi solo nella misura in cui siano trasferibili e approvati dalle autorità competenti.</p>
+          <p>Nulla in questo sito implica o garantisce l'approvazione del proprietario dell'immobile, l'approvazione della cessione del contratto di locazione, l'approvazione di una sublocazione, il trasferimento di licenze, il trasferimento di permessi, il continuo utilizzo del nome commerciale, il mantenimento dei rapporti con i fornitori, il mantenimento del traffico clienti, vendite future, profitti futuri, un periodo di recupero garantito, un ritorno sull'investimento garantito o il successo garantito dell'attività. Tutte le approvazioni, trasferimenti, cessioni e condizioni finali della transazione sono soggette al proprietario dell'immobile, agli enti governativi, alle autorità competenti per licenze e permessi, a eventuali terze parti e agli accordi scritti finali.</p>
+        </article>
       </div>
     </section>
 
     <section class="cta" id="contact" aria-labelledby="contact-title">
       <div>
-        <h2 id="contact-title">Request diligence access.</h2>
-        <p>Qualified buyers can review the videos, open the buyer memorandum, and follow up for lease, asset, and operating diligence materials.</p>
+        <h2 id="contact-title">Request a callback or schedule a showing.</h2>
+        <p>Interested parties are invited to discuss the opportunity, request a callback, or arrange a private showing of the restaurant.</p>
         <div class="cta-actions">
-          <a class="button" href="github-upload-light/assets/documents/buyer-cim-overview.pdf" target="_blank" rel="noopener">Open buyer overview</a>
-          <a class="button secondary" href="mailto:a1abakebar@gmail.com?subject=The%20Etna%20Rosso%20Lease%20Reassignment%20Inquiry">Email inquiry</a>
+          <a class="button" href="mailto:a1abakebar@gmail.com?subject=Request%20a%20Callback%20-%20The%20Etna%20Rosso">Request a callback</a>
+          <a class="button secondary" href="mailto:a1abakebar@gmail.com?subject=Schedule%20a%20Showing%20-%20The%20Etna%20Rosso">Schedule a showing</a>
         </div>
       </div>
       <div class="contact-box">
@@ -1277,19 +1373,20 @@
     <span>The Etna Rosso lease reassignment and asset sale opportunity.</span>
     <span>Source basis: 2025 POS-backed buyer CIM.</span>
   </footer>
+  <script>
+    (() => {
+      const gallery = document.querySelector("#assets");
+      const sections = [
+        document.querySelector('[aria-labelledby="visuals-title"]'),
+        document.querySelector('[aria-labelledby="thesis-title"]'),
+        document.querySelector("#proof"),
+        document.querySelector("#memorandum")
+      ];
+
+      sections.forEach((section) => {
+        if (section && gallery) gallery.parentNode.insertBefore(section, gallery);
+      });
+    })();
+  </script>
 </body>
 </html>
-<style>.space-gallery{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}.space-gallery .asset-tile{display:grid;grid-template-rows:auto 1fr}.space-gallery .asset-tile img{display:block;width:100%;aspect-ratio:4/3;object-fit:cover}.space-gallery .wide{grid-column:span 2}.space-gallery .wide img{aspect-ratio:2/1}.space-gallery .tall{grid-row:span 2}.space-gallery .tall img{height:100%;min-height:560px;aspect-ratio:auto}@media(max-width:980px){.space-gallery{grid-template-columns:repeat(2,minmax(0,1fr))}.space-gallery .tall{grid-row:auto}.space-gallery .tall img{min-height:0;aspect-ratio:4/3}}@media(max-width:720px){.space-gallery{grid-template-columns:1fr}.space-gallery .wide{grid-column:auto}.space-gallery .wide img{aspect-ratio:4/3}}</style><script>(()=>{const v=document.querySelector("#videos"),a=document.querySelector("#assets"),o=document.querySelector("[aria-labelledby=operating-areas-title]");a.parentNode.insertBefore(v,a);const g=document.createElement("div");g.className="space-gallery";const f=[...a.querySelectorAll("figure"),...o.querySelectorAll("figure")];f.forEach((x,i)=>{x.className="asset-tile";if([0,4,8].includes(i))x.classList.add("wide");if(i===5)x.classList.add("tall");g.appendChild(x)});a.querySelector("h2").textContent="Explore the space.";a.querySelector(".section-head p").textContent="A single gallery of the restaurant frontage, dining areas, wine-focused merchandising, kitchen infrastructure, patio, and floor plan.";a.querySelectorAll(":scope > :not(.section-head)").forEach(x=>x.remove());a.appendChild(g);o.remove();const n=document.querySelector(".nav-links a[href="#assets"]");if(n)n.textContent="Gallery"})();</script></script></style>
-<script>(()=>{const v=document.querySelector("#videos"),a=document.querySelector("#assets"),o=document.querySelector("[aria-labelledby=operating-areas-title]");a.parentNode.insertBefore(v,a);const g=document.createElement("div");g.className="space-gallery";const f=[...a.querySelectorAll("figure"),...o.querySelectorAll("figure")];f.forEach((x,i)=>{x.className="asset-tile";if([0,4,8].includes(i))x.classList.add("wide");if(i===5)x.classList.add("tall");g.appendChild(x)});a.querySelector("h2").textContent="Explore the space.";a.querySelector(".section-head p").textContent="A single gallery of the restaurant frontage, dining areas, wine-focused merchandising, kitchen infrastructure, patio, and floor plan.";a.querySelectorAll(":scope > :not(.section-head)").forEach(x=>x.remove());a.appendChild(g);o.remove();const n=[...document.querySelectorAll(".nav-links a")].find(x=>x.hash==="#assets");if(n)n.textContent="Gallery"})();</script></script>
-<style>.space-gallery{display:block;columns:3;column-gap:18px}.space-gallery .asset-tile{display:inline-block;width:100%;margin:0 0 18px;break-inside:avoid;vertical-align:top}.space-gallery .asset-tile img{height:auto;min-height:0;aspect-ratio:auto}.location-feature{margin:0 0 18px}.location-feature img{display:block;width:100%;aspect-ratio:16/7;object-fit:cover}@media(max-width:980px){.space-gallery{columns:2}}@media(max-width:720px){.space-gallery{columns:1}.location-feature img{aspect-ratio:4/3}}</style><script>(()=>{const a=document.querySelector("#assets"),g=a?.querySelector(".space-gallery");if(!a||!g||a.querySelector(".location-feature"))return;const f=document.createElement("figure");f.className="asset-tile location-feature";f.innerHTML=`<img src="github-upload-light/assets/images/etna-rosso-street-ocean-view.jpg" onerror="this.onerror=null;this.src="github-upload-light/assets/images/etna-rosso-a1a-location.jpeg"" alt="Aerial street view of the A1A corridor and Atlantic Ocean near The Etna Rosso"><figcaption class="image-caption"><strong>A1A location and ocean proximity</strong><span>High-visibility corridor surrounded by residential towers and located steps from the Atlantic Ocean.</span></figcaption>`;a.insertBefore(f,g)})();</script></script></style>
-<script>addEventListener("load",()=>{const i=document.querySelector(".location-feature img");if(i&&!i.naturalWidth)i.src="github-upload-light/assets/images/etna-rosso-a1a-location.jpeg"})</script></script>
-<script>addEventListener("load",()=>{const i=document.querySelector(".location-feature img");if(i)i.src="github-upload-light/assets/images/skyA1A_bright_color_sharp.jpg"})</script></script>
-<script>(()=>{const i=document.querySelector(".location-feature img");if(i)i.src="github-upload-light/assets/images/skyA1A_bright_color_sharp.jpg"})()</script></script>
-<script>(()=>{const p="github-upload-light/assets/documents/Etna-Rosso-Presentation.pdf",d=document.querySelector("#documents");d.querySelector(".section-head p").textContent="Review the complete opportunity presentation and supporting financial model directly from the website.";d.querySelectorAll(".document-card").forEach(c=>{const h=c.querySelector("h3");if(h.textContent.includes("blueprint"))c.remove();else if(h.textContent==="Buyer CIM"){h.textContent="Etna Rosso presentation";c.querySelector("p").textContent="The complete buyer presentation covering the restaurant, location, performance, asking-price support, and growth opportunity.";c.querySelectorAll("a").forEach(a=>a.href=p)}});document.querySelectorAll("a[href*=buyer-cim-overview]").forEach(a=>{a.href=p;if(a.textContent.includes("buyer overview"))a.textContent="Open presentation"});const m=document.querySelector("#memorandum");m.querySelector("h2").textContent="View the complete presentation.";m.querySelector(".pdf-copy p").textContent="Review the full Etna Rosso opportunity presentation directly below, including the location, restaurant assets, operating proof, asking-price support, and growth scenarios.";const x=m.querySelectorAll(".pdf-actions a");x[0].href=p;x[0].textContent="Open presentation";x[1].href=p;x[1].textContent="Download presentation";x[1].setAttribute("download","");m.querySelector("object").data=p+"#page=1"})()</script></script>
-<script>(()=>{const c=document.querySelector("#contact");c.querySelector("h2").textContent="Request a callback or schedule a showing.";c.querySelector(":scope > div > p").textContent="Interested parties are invited to discuss the opportunity, request a callback, or arrange a private showing of the restaurant.";const b=c.querySelectorAll(".cta-actions a");b[0].href="mailto:a1abakebar@gmail.com?subject=Request%20a%20Callback%20-%20The%20Etna%20Rosso";b[0].textContent="Request a callback";b[1].href="mailto:a1abakebar@gmail.com?subject=Schedule%20a%20Showing%20-%20The%20Etna%20Rosso";b[1].textContent="Schedule a showing"})()</script></script>
-<style>.location-pair{display:grid;grid-template-columns:minmax(0,2fr) minmax(280px,.72fr);gap:18px;margin:0 0 18px;align-items:stretch}.location-pair .asset-tile{margin:0}.location-pair .location-feature img{width:100%;aspect-ratio:16/7;object-fit:cover}.location-floor-plan img{width:100%;height:100%;min-height:0;object-fit:contain;background:#fff}@media(max-width:980px){.location-pair{grid-template-columns:1fr}.location-floor-plan img{max-height:680px}}</style><script>(()=>{const a=document.querySelector("#assets"),l=a.querySelector(".location-feature"),g=a.querySelector(".space-gallery"),f=[...g.querySelectorAll("figure")].find(x=>x.textContent.includes("3354 N Ocean Boulevard floor plan"));if(!l||!f||a.querySelector(".location-pair"))return;const p=document.createElement("div");p.className="location-pair";l.before(p);p.append(l,f);f.classList.add("location-floor-plan")})()</script></script></style>
-<style>.video-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:22px}.video-card{display:grid;grid-template-rows:auto 1fr}.video-language{display:block;margin-bottom:10px;color:var(--tomato-dark);font-size:.74rem;font-weight:900;letter-spacing:.1em;text-transform:uppercase}.document-grid{grid-template-columns:repeat(2,minmax(0,1fr))}@media(max-width:980px){.video-grid,.document-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}@media(max-width:720px){.video-grid,.document-grid{grid-template-columns:1fr}}</style><script>(()=>{const v=document.querySelector("#videos"),g=v?.querySelector(".video-grid");if(!v||!g)return;v.querySelector(".section-head p").textContent="Three short videos introduce the restaurant, space, and operating story, including a dedicated overview for Italian-speaking buyers.";if(!g.querySelector("iframe[src*=FGkiPhDb_4]")){const a=document.createElement("article");a.className="video-card";a.innerHTML=`<div class="video-frame"><iframe src="https://www.youtube.com/embed/-FGkiPhDb_4" title="The Etna Rosso opportunity video in Italian" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div><div class="video-copy"><span class="video-language">Italiano - Video in Italian</span><h3>Presentazione per acquirenti italiani</h3><p>Una panoramica dell opportunita dedicata ai potenziali acquirenti di lingua italiana.</p></div>`;g.appendChild(a)}})()</script></script></style>
-<style>.video-grid{grid-template-columns:repeat(3,minmax(0,1fr))!important}.video-card{display:grid;grid-template-rows:auto 1fr}.document-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important}.video-language{display:block;margin-bottom:10px;color:#87311f;font-size:.74rem;font-weight:900;letter-spacing:.1em;text-transform:uppercase}@media(max-width:980px){.video-grid,.document-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important}}@media(max-width:720px){.video-grid,.document-grid{grid-template-columns:1fr!important}}</style><script>(()=>{const v=document.getElementById("videos");const g=v.querySelector(".video-grid");v.querySelector(".section-head p").textContent="Three short videos introduce the restaurant, space, and operating story, including a dedicated overview for Italian-speaking buyers.";let found=false;g.querySelectorAll("iframe").forEach(x=>{if(x.src.includes("FGkiPhDb_4"))found=true});if(found)return;const a=document.createElement("article");a.className="video-card";const f=document.createElement("div");f.className="video-frame";const i=document.createElement("iframe");i.src="https://www.youtube.com/embed/-FGkiPhDb_4";i.title="The Etna Rosso opportunity video in Italian";i.allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share";i.setAttribute("allowfullscreen","");f.appendChild(i);const c=document.createElement("div");c.className="video-copy";const l=document.createElement("span");l.className="video-language";l.textContent="Italiano - Video in Italian";const h=document.createElement("h3");h.textContent="Presentazione per acquirenti italiani";const p=document.createElement("p");p.textContent="Una panoramica dell opportunita dedicata ai potenziali acquirenti di lingua italiana.";c.append(l,h,p);a.append(f,c);g.appendChild(a)})()</script></script></style>
-<style>@media(min-width:721px) and (max-width:980px){.video-grid .video-card:last-child{grid-column:1/-1}}@media(max-width:720px){.video-grid .video-card:last-child{grid-column:auto}}</style></style>
-<script>(()=>{const g=document.querySelector("#assets"),a=[document.querySelector("[aria-labelledby=visuals-title]"),document.querySelector("[aria-labelledby=thesis-title]"),document.querySelector("#proof"),document.querySelector("#memorandum")];a.forEach(x=>{if(x&&g)g.parentNode.insertBefore(x,g)})})()</script></script>
-<script>(()=>{const h=[...document.querySelectorAll("h2")].find(x=>x.textContent.trim()==="Ask support.");if(h)h.closest("section").remove()})()</script></script>
