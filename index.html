@@ -760,6 +760,41 @@
       font-size: clamp(2rem, 4vw, 3.8rem);
     }
 
+    .disclaimer-toggle {
+      list-style: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .disclaimer-toggle::-webkit-details-marker {
+      display: none;
+    }
+
+    .disclaimer-toggle::after {
+      content: "View details +";
+      flex: 0 0 auto;
+      padding: 12px 16px;
+      border: 1px solid var(--ink);
+      border-radius: 4px;
+      color: var(--ink);
+      font-size: 0.78rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .disclaimer[open] .disclaimer-toggle::after {
+      content: "Hide details -";
+    }
+
+    .disclaimer-toggle:focus-visible {
+      outline: 3px solid var(--tomato);
+      outline-offset: 8px;
+    }
+
     .disclaimer-intro {
       max-width: 780px;
       margin: 20px 0 0;
@@ -903,6 +938,11 @@
 
       .disclaimer-grid {
         grid-template-columns: 1fr;
+      }
+
+      .disclaimer-toggle {
+        align-items: flex-start;
+        flex-direction: column;
       }
 
       .video-grid .video-card:last-child {
@@ -1328,9 +1368,13 @@
       <p class="financial-note">The financial figures and scenarios shown within these visuals are historical, modeled, or illustrative, as applicable, and are not guarantees of future performance.</p>
     </section>
 
-    <section class="disclaimer" id="disclaimer" aria-labelledby="disclaimer-title">
-      <h2 id="disclaimer-title">Disclaimer / Important Information</h2>
-      <p class="disclaimer-intro">Please review this information before making any financial decision or entering into any agreement.</p>
+    <details class="disclaimer" id="disclaimer">
+      <summary class="disclaimer-toggle">
+        <span>
+          <h2 id="disclaimer-title">Disclaimer / Important Information</h2>
+          <p class="disclaimer-intro">Please review this information before making any financial decision or entering into any agreement.</p>
+        </span>
+      </summary>
       <div class="disclaimer-grid">
         <article class="disclaimer-language" lang="en">
           <h3>English</h3>
@@ -1349,7 +1393,7 @@
           <p>Nulla in questo sito implica o garantisce l'approvazione del proprietario dell'immobile, l'approvazione della cessione del contratto di locazione, l'approvazione di una sublocazione, il trasferimento di licenze, il trasferimento di permessi, il continuo utilizzo del nome commerciale, il mantenimento dei rapporti con i fornitori, il mantenimento del traffico clienti, vendite future, profitti futuri, un periodo di recupero garantito, un ritorno sull'investimento garantito o il successo garantito dell'attività. Tutte le approvazioni, trasferimenti, cessioni e condizioni finali della transazione sono soggette al proprietario dell'immobile, agli enti governativi, alle autorità competenti per licenze e permessi, a eventuali terze parti e agli accordi scritti finali.</p>
         </article>
       </div>
-    </section>
+    </details>
 
     <section class="cta" id="contact" aria-labelledby="contact-title">
       <div>
